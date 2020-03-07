@@ -12,19 +12,21 @@
 </head>
 
 <body>
- <div class="login">
+  <div class="login">
 	<h1>Predict Salary Analysis</h1>
-     <!-- Main Input For Receiving Query to our ML -->
+    <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
     	<input type="text" name="experience" placeholder="Experience" required="required" />
         <input type="text" name="test_score" placeholder="Test Score (1-10)" required="required" />
 		<input type="text" name="interview_score" placeholder="Interview Score (1-10)" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
+  <br>
+  <br>
+  {% for para in prediction_text %}
+    {{para}}<br>
+  {% endfor %}
 
-   <br>
-   <br>
-   {{ prediction_text }}
 
  </div>
 

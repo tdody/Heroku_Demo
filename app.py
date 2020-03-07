@@ -28,9 +28,10 @@ def predict():
     prediction = model.predict(final_features)
     # format output
     output = round(prediction[0], 2)
+
     # render index with adder inputs
-    print(output)
-    return render_template('index.html', prediction_text="Employee Salary should be $ {}".format(output))
+    output = "Employee Salary should be $ {0}\n\nExperience={1}\nTest Score={2}\nInterview Score={3}".format(output,*int_features).split('\n')
+    return render_template('index.html', prediction_text=output)
 
 if __name__ == "__main__":
     app.run(debug=True)
